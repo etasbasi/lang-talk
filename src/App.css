@@ -1,32 +1,128 @@
-.App {
+/* GLOBAL */
+
+* {
+  /* out  line: 1px solid black; */
+}
+
+body {
+  font: 1.2em/1.5 "KoHo", sans-serif;
+}
+
+:root {
+  --main-color: #8a4fff;
+}
+
+a.btn-large {
+  background-color: var(--main-color);
+}
+
+/* NAVBAR */
+
+nav {
+  background-color: var(--main-color);
+}
+
+nav .nav-wrapper {
+  margin: 0 20px;
+}
+
+/* MAIN */
+
+.parallax-container {
+  height: 400px;
+  opacity: 0.8;
+}
+
+.parallax-container .greeting-container {
+  width: 600px;
+  margin: auto;
+}
+
+.parallax-container .greeting-container h4 {
+  font-weight: bold;
+  color: black;
+}
+
+.parallax-container .parallax {
+  background-color: #55bcbb;
+}
+
+.parallax-container .parallax img.main {
+  width: 800px;
+}
+
+.parallax-container .parallax img.secondary {
+  width: 800px;
+}
+
+/* 3 COLUMN SECTION */
+
+.column-container {
+  margin: 50px auto;
+  position: relative;
+  grid-column-gap: 40px;
+  display: grid;
+  grid-template-areas: "column-1 column-2 column-3";
+  justify-items: center;
+}
+
+.column-container .column {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.column-container .column i {
+  display: block;
+  font-size: 60px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.column-container .column:nth-child(1) {
+  grid-area: column-1;
 }
 
-.App-link {
-  color: #61dafb;
+.column-container .column:nth-child(2) {
+  grid-area: column-2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.column-container .column:nth-child(3) {
+  grid-area: column-3;
+}
+
+.bottom-text {
+  margin: 100px auto;
+  text-align: center;
+}
+
+.bottom-text a {
+  margin: 10px;
+}
+
+/* FOOTER */
+
+.page-footer {
+  background-color: var(--main-color);
+}
+
+.page-footer div i {
+  position: relative;
+  top: 6px;
+}
+
+@media only screen and (max-width: 995px) {
+  nav .nav-wrapper {
+    margin: 0 0;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (max-width: 600px) {
+  .column-container {
+    grid-template-areas:
+      "column-1"
+      "column-2"
+      "column-3";
+    grid-row-gap: 40px;
+  }
+
+  .parallax-container.secondary {
+    height: 300px;
   }
 }
