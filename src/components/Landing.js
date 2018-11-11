@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import M from "materialize-css";
 
-export default class Main extends Component {
+export default class Landing extends Component {
   componentDidMount() {
     M.Parallax.init(this.refs.parallax1);
     M.Parallax.init(this.refs.parallax2);

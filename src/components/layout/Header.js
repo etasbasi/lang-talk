@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import M from "materialize-css";
+import { Link } from "react-router-dom";
 
 export default class Header extends Component {
   componentDidMount() {
@@ -12,15 +13,15 @@ export default class Header extends Component {
       <div>
         <nav>
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo">
+            <Link className="brand-logo" to="/">
               Lang-Talk
-            </a>
+            </Link>
             <a href="#" data-target="mobile-demo" className="sidenav-trigger">
               <i className="material-icons">menu</i>
             </a>
             <ul className="right hide-on-med-and-down">
               <li>
-                <a href="#">Feed</a>
+                <Link to="/feed">Feed</Link>
               </li>
               <li>
                 <a href="#">Login</a>
@@ -31,7 +32,7 @@ export default class Header extends Component {
 
         <ul ref="sidenav" className="sidenav" id="mobile-demo">
           <li>
-            <a href="#">Feed</a>
+            <Link to="/feed">Feed</Link>
           </li>
           <li>
             <a href="#">Login</a>

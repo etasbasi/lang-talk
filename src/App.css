@@ -1,7 +1,7 @@
 /* GLOBAL */
 
 * {
-  /* out  line: 1px solid black; */
+  /* outline: 1px solid black; */
 }
 
 body {
@@ -10,6 +10,7 @@ body {
 
 :root {
   --main-color: #8a4fff;
+  --secondary-color: #c3bef7;
 }
 
 a.btn-large {
@@ -107,6 +108,58 @@ nav .nav-wrapper {
   top: 6px;
 }
 
+/* FEED */
+
+div.card.horizontal div.card-image {
+  margin: 0 20px;
+  display: block;
+  text-align: center;
+}
+
+div.card.horizontal div.card-image img {
+  width: 80px;
+  margin: 4px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+div.card.horizontal div.card-image .date {
+  font-size: 0.8em;
+  line-height: 0.8;
+}
+
+.card-content .tag {
+  padding: 1px 6px;
+  margin: 2px;
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 0.9em;
+  float: right;
+}
+
+/* DASHBOARD */
+img.profile-img {
+  width: 140px;
+  margin: 4px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+div.dashboard .cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.dashboard .cards .card {
+  flex: 0 1 45%;
+  margin: 20px 5px;
+  height: fit-content;
+}
+
+div.dashboard .btn-floating {
+  transition: all 200ms ease;
+}
+
 @media only screen and (max-width: 995px) {
   nav .nav-wrapper {
     margin: 0 0;
@@ -124,5 +177,10 @@ nav .nav-wrapper {
 
   .parallax-container.secondary {
     height: 300px;
+  }
+
+  div.dashboard .cards .card {
+    flex: 0 1 100%;
+    margin: 20px 5px;
   }
 }
