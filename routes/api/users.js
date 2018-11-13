@@ -120,6 +120,8 @@ router.post("/login", (req, res) => {
 // @access  Private
 router.get(
   "/current",
-  passport.authenticate("jwt", { 
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => res.json({ user: req.user })
+);
 
 module.exports = router;
