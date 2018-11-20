@@ -24,7 +24,10 @@ export default class Header extends Component {
                 <Link to="/feed">Feed</Link>
               </li>
               <li>
-                <a href="#">Login</a>
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/register">Register</Link>
               </li>
             </ul>
           </div>
@@ -35,7 +38,10 @@ export default class Header extends Component {
             <Link to="/feed">Feed</Link>
           </li>
           <li>
-            <a href="#">Login</a>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/register">Register</Link>
           </li>
         </ul>
       </div>
