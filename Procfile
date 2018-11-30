@@ -1,1 +1,1 @@
-web: node server.js & npm start --prefix client & wait -n
+web: node server.js
