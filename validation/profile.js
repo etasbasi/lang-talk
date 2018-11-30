@@ -11,6 +11,7 @@ module.exports = function validateProfileInput(data) {
   data.interestedId = !isEmpty(data.interestedId) ? data.interestedId : "";
 
   if (!isEmpty(data.youtube)) {
+    console.log(data.youtube);
     if (!Validator.isURL(data.youtube)) {
       errors.youtube = "Not a valid URL";
     }

@@ -1,10 +1,31 @@
 import React, { Component } from "react";
 import M from "materialize-css";
+import { PropTypes } from "prop-types";
+import { connect } from "react-redux";
+import LangImg from "../imgs/lang.webp";
+import MultiCultImg from "../imgs/multi-cultural.jpg";
 
-export default class Landing extends Component {
+class Landing extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClick = this.onClick.bind(this);
+  }
+
   componentDidMount() {
     M.Parallax.init(this.refs.parallax1);
     M.Parallax.init(this.refs.parallax2);
+
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+
+    console.log(MultiCultImg);
+    console.log(LangImg);
+  }
+
+  onClick() {
+    this.props.history.push("/register");
   }
 
   render() {
@@ -16,12 +37,15 @@ export default class Landing extends Component {
               Lang-Talk is a place where you can ask questions and learn about
               other languages
             </h4>
-            <a href="#" className="waves-effect waves-light btn-large">
+            <a
+              onClick={this.onClick}
+              className="waves-effect waves-light btn-large"
+            >
               Sign Up
             </a>
           </div>
           <div ref="parallax1" className="parallax">
-            <img className="main" src="http://localhost:3000/imgs/lang.webp" />
+            <img alt="Language Image" className="main" src={LangImg} />
           </div>
         </div>
         <div className="column-container container">
@@ -43,14 +67,15 @@ export default class Landing extends Component {
         <div className="parallax-container secondary">
           <div ref="parallax2" className="parallax">
             <img
+              alt="Multi cultural"
               className="secondary"
-              src="http://localhost:3000/imgs/multi-cultural.jpg"
+              src={require("../imgs/multi-cultural.jpg")}
             />
           </div>
         </div>
         <div className="bottom-text container">
           <h6>Sign Up now to join the community!</h6>
-          <a href="#" className="waves-effect btn-large">
+          <a onClick={this.onClick} className="waves-effect btn-large">
             Sign Up
           </a>
         </div>
@@ -58,3 +83,13 @@ export default class Landing extends Component {
     );
   }
 }
+
+Landing.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Landing);

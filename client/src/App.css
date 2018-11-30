@@ -17,6 +17,46 @@ a.btn-large {
   background-color: var(--main-color);
 }
 
+a {
+  cursor: pointer;
+}
+
+/* Notvalid class for input fields */
+
+textarea.notvalid,
+input.notvalid,
+.create-profile input.notvalid {
+  border-color: red;
+  box-shadow: 0 1px 0 0 red;
+}
+
+textarea.notvalid + label,
+input.notvalid + label,
+.create-profile input.notvalid + label {
+  border-color: red;
+}
+
+textarea.notvalid:focus + label,
+input.notvalid:focus + label .create-profile input.notvalid:focus + label {
+  border-color: red;
+}
+
+.register form div.row div.col.s6 input.notvalid,
+.login form div.row div.col.s6 input.notvalid {
+  border-color: red;
+  box-shadow: 0 1px 0 0 red;
+}
+
+.register form div.row div.col.s6 input.notvalid + label,
+.login form div.row div.col.s6 input.notvalid + label {
+  color: red;
+}
+
+.register input.notvalid:focus + label,
+.login input.notvalid:focus + label {
+  color: red;
+}
+
 /* NAVBAR */
 
 nav {
@@ -25,6 +65,15 @@ nav {
 
 nav .nav-wrapper {
   margin: 0 20px;
+}
+
+.header img {
+  height: 20px;
+  width: auto;
+  border-radius: 50%;
+  position: relative;
+  top: 5px;
+  margin: 0 4px;
 }
 
 /* MAIN */
@@ -138,6 +187,15 @@ div.card.horizontal div.card-image .date {
 }
 
 /* DASHBOARD */
+
+div.dashboard {
+  margin: 50px auto;
+}
+
+div.dashboard .card-panel {
+  background-color: var(--secondary-color);
+}
+
 img.profile-img {
   width: 140px;
   margin: 4px;
@@ -158,6 +216,48 @@ div.dashboard .cards .card {
 
 div.dashboard .btn-floating {
   transition: all 200ms ease;
+}
+
+/* LOGIN */
+
+.login {
+  margin: 40px auto;
+}
+
+.helper-text,
+.register .helper-text,
+.input .helper-text {
+  font-size: 75%;
+}
+
+/* .login input[type="submit"],
+.register input[type="submit"] {
+  color: white;
+  background-color: var(--main-color);
+} */
+
+/* REGISTER */
+
+.register {
+  margin: 40px auto;
+}
+
+/* CREATE PROFILE */
+.create-profile {
+  margin: 50px auto;
+}
+
+.create-profile form button {
+  display: block;
+  margin: 40px auto;
+}
+
+div.create-profile form div.form-group input {
+  /* margin-top: 40px; */
+}
+
+div.create-profile form i {
+  /* margin-top: 40px; */
 }
 
 @media only screen and (max-width: 995px) {
