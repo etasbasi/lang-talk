@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import Spinner from "../components/common/Spinner";
+import Spinner from "../common/Spinner";
 
-import { getCurrentProfile } from "../actions/profileActions";
+import { getCurrentProfile } from "../../actions/profileActions";
+import ProfileActions from "./ProfileActions";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -23,7 +24,14 @@ class Dashboard extends Component {
     } else {
       // Check if the user has profile data
       if (Object.keys(profile).length > 0) {
-        dashboardContent = <h4>Profile Exists</h4>;
+        dashboardContent = (
+          <div>
+            <h4 className="">
+              Welcome <Link to={`/profile/${profile._id}`}>{user.name}</Link>
+            </h4>
+            <ProfileActions />
+          </div>
+        );
       } else {
         // User is logged but has no profile
         dashboardContent = (

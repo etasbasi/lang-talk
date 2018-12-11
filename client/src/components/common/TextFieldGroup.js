@@ -27,8 +27,9 @@ const TextFieldGroup = ({
             onChange={onChange}
             disabled={disabled}
             id={placeholder}
+            placeholder={placeholder}
           />
-          <label htmlFor={placeholder}>{placeholder}</label>
+          {/* <label htmlFor={placeholder}>{placeholder}</label> */}
           {info && <small className="">{info}</small>}
           {error && <span className="helper-text">{error}</span>}
         </div>

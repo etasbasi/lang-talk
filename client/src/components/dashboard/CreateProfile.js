@@ -3,11 +3,11 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { createProfile } from "../actions/profileActions";
+import { createProfile } from "../../actions/profileActions";
 
-import TextFieldGroup from "./common/TextFieldGroup";
-import InputGroup from "./common/InputGroup";
-import TextAreaFieldGroup from "./common/TextAreaFieldGroup";
+import TextFieldGroup from "../common/TextFieldGroup";
+import InputGroup from "../common/InputGroup";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 
 class CreateProfile extends Component {
   state = {

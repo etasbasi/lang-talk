@@ -26,35 +26,35 @@ a {
 textarea.notvalid,
 input.notvalid,
 .create-profile input.notvalid {
-  border-color: red;
-  box-shadow: 0 1px 0 0 red;
+  border-color: red !important;
+  box-shadow: 0 1px 0 0 red !important;
 }
 
 textarea.notvalid + label,
 input.notvalid + label,
 .create-profile input.notvalid + label {
-  border-color: red;
+  border-color: red !important;
 }
 
 textarea.notvalid:focus + label,
 input.notvalid:focus + label .create-profile input.notvalid:focus + label {
-  border-color: red;
+  border-color: red !important;
 }
 
 .register form div.row div.col.s6 input.notvalid,
 .login form div.row div.col.s6 input.notvalid {
-  border-color: red;
-  box-shadow: 0 1px 0 0 red;
+  border-color: red !important;
+  box-shadow: 0 1px 0 0 red !important;
 }
 
 .register form div.row div.col.s6 input.notvalid + label,
 .login form div.row div.col.s6 input.notvalid + label {
-  color: red;
+  color: red !important;
 }
 
 .register input.notvalid:focus + label,
 .login input.notvalid:focus + label {
-  color: red;
+  color: red !important;
 }
 
 /* NAVBAR */
@@ -227,7 +227,8 @@ div.dashboard .btn-floating {
 .helper-text,
 .register .helper-text,
 .input .helper-text {
-  font-size: 75%;
+  font-size: 75% !important;
+  color: red !important;
 }
 
 /* .login input[type="submit"],
