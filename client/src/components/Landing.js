@@ -4,14 +4,9 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import LangImg from "../imgs/lang.webp";
 import MultiCultImg from "../imgs/multi-cultural.jpg";
+import { Link } from "react-router-dom";
 
 class Landing extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onClick = this.onClick.bind(this);
-  }
-
   componentDidMount() {
     M.Parallax.init(this.refs.parallax1);
     M.Parallax.init(this.refs.parallax2);
@@ -24,10 +19,6 @@ class Landing extends Component {
     console.log(LangImg);
   }
 
-  onClick() {
-    this.props.history.push("/register");
-  }
-
   render() {
     return (
       <div>
@@ -37,15 +28,12 @@ class Landing extends Component {
               Lang-Talk is a place where you can ask questions and learn about
               other languages
             </h4>
-            <a
-              onClick={this.onClick}
-              className="waves-effect waves-light btn-large"
-            >
+            <Link to="/register" className="waves-effect waves-light btn-large">
               Sign Up
-            </a>
+            </Link>
           </div>
           <div ref="parallax1" className="parallax">
-            <img alt="Language Image" className="main" src={LangImg} />
+            <img alt="Language" className="main" src={LangImg} />
           </div>
         </div>
         <div className="column-container container">
@@ -75,9 +63,9 @@ class Landing extends Component {
         </div>
         <div className="bottom-text container">
           <h6>Sign Up now to join the community!</h6>
-          <a onClick={this.onClick} className="waves-effect btn-large">
+          <Link to="/register" className="waves-effect btn-large">
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
     );

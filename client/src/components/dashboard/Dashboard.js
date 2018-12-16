@@ -7,6 +7,7 @@ import Spinner from "../common/Spinner";
 
 import { getCurrentProfile } from "../../actions/profileActions";
 import ProfileActions from "./ProfileActions";
+import ProfileContent from "./ProfileContent";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class Dashboard extends Component {
               Welcome <Link to={`/profile/${profile._id}`}>{user.name}</Link>
             </h4>
             <ProfileActions />
+            <ProfileContent profile={profile} />
           </div>
         );
       } else {
@@ -50,57 +52,7 @@ class Dashboard extends Component {
       }
     }
 
-    return (
-      <div className="container dashboard">
-        {dashboardContent}
-        {/* <div className="fixed-action-btn">
-          <a
-            href="#"
-            className="hoverable waves-effect btn-floating btn-large red"
-          >
-            <i className="large material-icons">mode_edit</i>
-          </a>
-        </div>
-        <h3>Dashboard</h3>
-        <img src="imgs/profile.png" alt="" className="profile-img" />
-        <h4>Enes</h4>
-        <div className="cards">
-          <div className="card small">
-            <div className="card-content">
-              <h5>Languages Spoken</h5>
-              <ul>
-                <li>Turkish</li>
-                <li>English</li>
-                <li>Arabic</li>
-                <li>Russian</li>
-              </ul>
-            </div>
-          </div>
-          <div className="card small">
-            <div className="card-content">
-              <h5>Interested in Languages</h5>
-              <ul>
-                <li>French</li>
-                <li>Japanese</li>
-                <li>Korean</li>
-                <li>Spanish</li>
-              </ul>
-            </div>
-          </div>
-          <div className="card small">
-            <div className="card-content">
-              <h5>Hobbies</h5>
-              <ul>
-                <li>Coding</li>
-                <li>Working out</li>
-                <li>Reading</li>
-                <li>Watching movies </li>
-              </ul>
-            </div>
-          </div>
-        </div> */}
-      </div>
-    );
+    return <div className="container dashboard">{dashboardContent}</div>;
   }
 }
 

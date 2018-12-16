@@ -37,8 +37,10 @@ router.post(
     const profileFields = {};
 
     profileFields.user = req.user.id;
-    if (req.body.bio) profileFields.bio = req.body.bio;
-    if (req.body.location) profileFields.location = req.body.location;
+    profileFields.location = req.body.location;
+    profileFields.bio = req.body.bio;
+    // if (req.body.bio) profileFields.bio = req.body.bio;
+    // if (req.body.location) profileFields.location = req.body.location;
 
     if (typeof req.body.hobbies !== "undefined") {
       profileFields.hobbies = req.body.hobbies.split(",");

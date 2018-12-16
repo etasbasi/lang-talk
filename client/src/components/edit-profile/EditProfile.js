@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -7,7 +7,6 @@ import { createProfile, getCurrentProfile } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
 
 import TextFieldGroup from "../common/TextFieldGroup";
-import InputGroup from "../common/InputGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 
 class EditProfile extends Component {
@@ -43,22 +42,27 @@ class EditProfile extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
+    if (!isEmpty(nextProps.errors)) {
       this.setState({ errors: nextProps.errors });
-    }
-
-    if (nextProps.profile.profile) {
+    } else if (nextProps.profile.profile) {
       const { profile } = nextProps.profile;
 
       // Bring skills array back to comma seperated values
-      const hobbiesCS = profile.hobbies.join(",");
-      const languagesCS = profile.languages.join(",");
-      const interestedInCS = profile.interestedIn.join(",");
+      const hobbiesCS = !isEmpty(profile.hobbies)
+        ? profile.hobbies.join(",")
+        : "";
+      const languagesCS = !isEmpty(profile.languages)
+        ? profile.languages.join(",")
+        : "";
+      const interestedInCS = !isEmpty(profile.interestedIn)
+        ? profile.interestedIn.join(",")
+        : "";
 
       // if profile fields doesn't exist, set them to empty strings
       profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
-      profile.location = !isEmpty(profile.location) ? profile.location : "";
+      // profile.location = !isEmpty(profile.location) ? profile.location : "";
       profile.social = !isEmpty(profile.social) ? profile.social : {};
+
       profile.twitter = !isEmpty(profile.social.twitter)
         ? profile.social.twitter
         : "";
@@ -99,6 +103,10 @@ class EditProfile extends Component {
 
     return (
       <div className="container create-profile">
+        <Link className="btn waves-effect waves-light" to="/dashboard">
+          Go Back
+          <i className="material-icons left">keyboard_arrow_left</i>
+        </Link>
         <h3>Edit your profile</h3>
         <form onSubmit={this.onSubmit} noValidate>
           <TextAreaFieldGroup
@@ -131,7 +139,7 @@ class EditProfile extends Component {
             value={this.state.languages}
             onChange={this.onChange}
             error={errors.languages}
-            info="What languages do you currently speak? Seperate your answers with commas"
+            info="What languages do you speak?, Seperate your answers with commas"
           />
           <TextFieldGroup
             placeholder="Interested in"

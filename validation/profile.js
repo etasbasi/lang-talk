@@ -5,7 +5,7 @@ module.exports = function validateProfileInput(data) {
   let errors = {};
 
   data.bio = !isEmpty(data.bio) ? data.bio : "";
-  data.location = !isEmpty(data.location) ? data.location : "";
+  // data.location = !isEmpty(data.location) ? data.location : "";
   data.hobbies = !isEmpty(data.hobbies) ? data.hobbies : "";
   data.languages = !isEmpty(data.languages) ? data.languages : "";
   data.interestedId = !isEmpty(data.interestedId) ? data.interestedId : "";

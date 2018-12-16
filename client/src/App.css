@@ -13,8 +13,12 @@ body {
   --secondary-color: #c3bef7;
 }
 
-a.btn-large {
-  background-color: var(--main-color);
+a.btn-large,
+a.btn,
+input.btn,
+input.btn-large {
+  background-color: var(--main-color) !important;
+  color: white;
 }
 
 a {
@@ -190,6 +194,16 @@ div.card.horizontal div.card-image .date {
 
 div.dashboard {
   margin: 50px auto;
+}
+
+div.dashboard div.dashboard-location i {
+  color: var(--main-color);
+}
+
+div.dashboard div.dashboard-location span {
+  font-weight: bold;
+  position: relative;
+  top: -7px;
 }
 
 div.dashboard .card-panel {

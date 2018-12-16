@@ -4,9 +4,14 @@ import { Link } from "react-router-dom";
 function ProfileActions() {
   return (
     <div>
-      <Link className="btn waves-effect" to="/edit-profile">
-        Edit Profile
-      </Link>
+      <div className="fixed-action-btn">
+        <Link
+          to="/edit-profile"
+          className="hoverable waves-effect btn-floating btn-large red"
+        >
+          <i className="large material-icons">mode_edit</i>
+        </Link>
+      </div>
     </div>
   );
 }
