@@ -4,6 +4,22 @@ import PropTypes from "prop-types";
 import ListCard from "../common/ListCard";
 
 function ProfileContent({ profile }) {
+  let socialLinks;
+
+  if (profile.social && Object.keys(profile.social).length > 0) {
+    socialLinks = (
+      <div className="card social-links">
+        <div className="card-content">
+          <span className="card-title">Links</span>
+          {Object.keys(profile.social).map((item, index) => (
+            <a key={index} target="__blank" href={profile.social[item]}>
+              <i className={`fab fa-${item}`} />{" "}
+            </a>
+          ))}
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
       <img
@@ -20,6 +36,8 @@ function ProfileContent({ profile }) {
       ) : (
         ""
       )}
+
+      {socialLinks}
 
       <div className="cards">
         <ListCard title="Languages Spoken" list={profile.languages} />

@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import Spinner from "../common/Spinner";
 
 import { getCurrentProfile } from "../../actions/profileActions";
+import { deleteAccount } from "../../actions/profileActions";
 import ProfileActions from "./ProfileActions";
 import ProfileContent from "./ProfileContent";
 
@@ -32,6 +33,12 @@ class Dashboard extends Component {
             </h4>
             <ProfileActions />
             <ProfileContent profile={profile} />
+            <button
+              onClick={() => this.props.deleteAccount()}
+              className="waves-effect waves-light btn delete-button"
+            >
+              Delete Account
+            </button>
           </div>
         );
       } else {
@@ -69,5 +76,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentProfile }
+  { getCurrentProfile, deleteAccount }
 )(Dashboard);

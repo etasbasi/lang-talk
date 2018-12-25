@@ -158,7 +158,6 @@ class EditProfile extends Component {
             <div className="col s6">
               <TextFieldGroup
                 placeholder="Instagram"
-                errors={errors.instagram}
                 onChange={this.onChange}
                 value={this.state.instagram}
                 name="instagram"
@@ -187,7 +186,6 @@ class EditProfile extends Component {
                 onChange={this.onChange}
                 value={this.state.linkedin}
                 name="linkedin"
-                error={errors.linkedin}
               />
             </div>
             <div className="col s6">

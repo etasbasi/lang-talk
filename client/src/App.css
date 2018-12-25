@@ -194,6 +194,34 @@ div.card.horizontal div.card-image .date {
 
 div.dashboard {
   margin: 50px auto;
+  position: relative;
+}
+
+div.card.social-links {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: -5px;
+}
+
+div.card.social-links div.card-content {
+  width: fit-content;
+  max-width: 127px;
+  padding: 18px 15px;
+}
+
+div.social-links span {
+  text-align: center;
+}
+
+div.social-links i {
+  font-size: 2em;
+  color: var(--secondary-color);
+  margin: 4px;
+}
+
+div.social-links i:hover {
+  color: var(--main-color);
 }
 
 div.dashboard div.dashboard-location i {
@@ -232,6 +260,10 @@ div.dashboard .btn-floating {
   transition: all 200ms ease;
 }
 
+div.dashboard .delete-button {
+  background-color: red;
+}
+
 /* LOGIN */
 
 .login {
@@ -244,12 +276,6 @@ div.dashboard .btn-floating {
   font-size: 75% !important;
   color: red !important;
 }
-
-/* .login input[type="submit"],
-.register input[type="submit"] {
-  color: white;
-  background-color: var(--main-color);
-} */
 
 /* REGISTER */
 
@@ -265,10 +291,6 @@ div.dashboard .btn-floating {
 .create-profile form button {
   display: block;
   margin: 40px auto;
-}
-
-div.create-profile form div.form-group input {
-  /* margin-top: 40px; */
 }
 
 div.create-profile form i {
