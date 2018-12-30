@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import { gzipSync } from "zlib";
 
 class Header extends Component {
   componentDidMount() {
@@ -22,20 +21,28 @@ class Header extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLink = (
-      <li>
-        <a href="" onClick={this.onLogoutClick.bind(this)}>
-          Log Out
-          <img
-            src={user.avatar}
-            alt={user.name}
-            title="You must have a Gravatar connected to your email to display and image"
-          />
-        </a>
-      </li>
+      <div>
+        <li>
+          <Link to="/profiles">Users</Link>
+        </li>
+        <li>
+          <a href="" onClick={this.onLogoutClick.bind(this)}>
+            Log Out
+            <img
+              src={user.avatar}
+              alt={user.name}
+              title="You must have a Gravatar connected to your email to display and image"
+            />
+          </a>
+        </li>
+      </div>
     );
 
     const guestLink = (
       <div>
+        <li>
+          <Link to="/profiles">Users</Link>
+        </li>
         <li>
           <Link to="/feed">Feed</Link>
         </li>

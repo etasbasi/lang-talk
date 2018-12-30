@@ -21,6 +21,8 @@ import CreateProfile from "./components/dashboard/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
 import Footer from "./components/layout/Footer";
 import PrivateRoute from "./components/common/PrivateRoute";
+import Profiles from "./components/profiles/Profiles";
+import Profile from "./components/profile/Profile";
 
 // Check if the user is logged in
 if (localStorage.jwtToken) {
@@ -53,6 +55,8 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/question" component={Question} />
+            <Route exact path="/profiles" component={Profiles} />
+            <Route exact path="/profile/:id" component={Profile} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

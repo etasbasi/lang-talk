@@ -28,9 +28,6 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
-            <h4 className="">
-              Welcome <Link to={`/profile/${profile._id}`}>{user.name}</Link>
-            </h4>
             <ProfileActions />
             <ProfileContent profile={profile} />
             <button

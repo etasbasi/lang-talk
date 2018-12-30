@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 import { createProfile } from "../../actions/profileActions";
 
 import TextFieldGroup from "../common/TextFieldGroup";
-import InputGroup from "../common/InputGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 
 class CreateProfile extends Component {
@@ -132,7 +131,6 @@ class CreateProfile extends Component {
                 onChange={this.onChange}
                 value={this.state.linkedin}
                 name="linkedin"
-                error={errors.linkedin}
               />
             </div>
             <div className="col s6">

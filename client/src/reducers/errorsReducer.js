@@ -1,4 +1,3 @@
-import isEmpty from "./../validation/is-empty";
 import { GET_ERRORS } from "../actions/types";
 
 const initialState = {};

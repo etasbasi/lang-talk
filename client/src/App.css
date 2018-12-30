@@ -197,17 +197,15 @@ div.dashboard {
   position: relative;
 }
 
-div.card.social-links {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: -5px;
+.profile .profile-header {
+  text-align: center;
+  background-color: var(--secondary-color);
+  padding: 10px;
 }
 
 div.card.social-links div.card-content {
-  width: fit-content;
-  max-width: 127px;
-  padding: 18px 15px;
+  font-size: 1.5em;
+  padding: 10px;
 }
 
 div.social-links span {
@@ -297,6 +295,47 @@ div.create-profile form i {
   /* margin-top: 40px; */
 }
 
+/* Profiles page */
+
+.profiles div.card.horizontal {
+  display: grid;
+  grid-template-columns: 140px auto;
+}
+
+.profiles .card-image {
+  margin: 20px auto !important;
+  height: 100%;
+  width: 100%;
+}
+
+.profiles .card-image img {
+  max-width: 100% !important;
+  margin: auto !important;
+  height: auto;
+}
+
+.profiles .card-image span {
+  font-size: 1.2em;
+  padding: 3px;
+}
+
+.profiles .card-content {
+  display: grid;
+  grid-template-columns: 60% auto;
+  grid-gap: 15px;
+}
+
+.profiles .card-content .lang-list {
+  background-color: var(--secondary-color);
+  padding: 15px;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.profiles .card-content .lang-list ul {
+  margin: 5px;
+}
+
 @media only screen and (max-width: 995px) {
   nav .nav-wrapper {
     margin: 0 0;
@@ -319,5 +358,13 @@ div.create-profile form i {
   div.dashboard .cards .card {
     flex: 0 1 100%;
     margin: 20px 5px;
+  }
+
+  .profiles .card-content {
+    grid-template-columns: auto;
+  }
+
+  .profiles .card-content .lang-list {
+    display: none;
   }
 }

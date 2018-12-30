@@ -5,7 +5,8 @@ import {
   PROFILE_LOADING,
   GET_ERRORS,
   CLEAR_CURRENT_PROFILE,
-  SET_CURRENT_USER
+  SET_CURRENT_USER,
+  GET_PROFILES
 } from "./types";
 
 // Get current profile
@@ -38,6 +39,22 @@ export const deleteAccount = () => dispatch => {
       .then(res => dispatch({ type: SET_CURRENT_USER, payload: {} }))
       .catch(err => dispatch({ GET_ERRORS, payload: err.response.data }));
   }
+};
+
+export const getProfiles = () => dispatch => {
+  dispatch(setProfileLoading());
+  axios
+    .get("/api/profile/all")
+    .then(res => dispatch({ type: GET_PROFILES, payload: res.data }))
+    .catch(err => dispatch({ type: GET_PROFILES, payload: null }));
+};
+
+export const getProfileById = id => dispatch => {
+  dispatch(setProfileLoading());
+  axios
+    .get(`/api/profile/user/${id}`)
+    .then(res => dispatch({ type: GET_PROFILE, payload: res.data }))
+    .catch(err => dispatch({ type: GET_PROFILE, payload: null }));
 };
 
 // Clear profile
