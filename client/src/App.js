@@ -23,6 +23,7 @@ import Footer from "./components/layout/Footer";
 import PrivateRoute from "./components/common/PrivateRoute";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
+import Posts from "./components/posts/Posts";
 
 // Check if the user is logged in
 if (localStorage.jwtToken) {
@@ -59,6 +60,9 @@ class App extends Component {
             <Route exact path="/profile/:id" component={Profile} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/posts" component={Posts} />
             </Switch>
             <Switch>
               <PrivateRoute

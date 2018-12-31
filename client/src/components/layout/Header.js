@@ -26,6 +26,9 @@ class Header extends Component {
           <Link to="/profiles">Users</Link>
         </li>
         <li>
+          <Link to="/posts">Posts</Link>
+        </li>
+        <li>
           <a href="" onClick={this.onLogoutClick.bind(this)}>
             Log Out
             <img

@@ -22,6 +22,7 @@ function ProfileContent({ profile }) {
   return (
     <div className="profile">
       <div className="profile-header z-depth-2">
+        <h4>{profile.user.name}'s profile</h4>
         <img
           src={profile.user.avatar}
           alt="profile avatar"
