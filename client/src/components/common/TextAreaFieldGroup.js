@@ -24,7 +24,7 @@ const TextAreaFieldGroup = ({
           onChange={onChange}
         />
         {info && <small className="">{info}</small>}
-        {error && <span className="helper-text">{error}</span>}
+        {error && <span className="textarea helper-text">{error}</span>}
       </div>
     </div>
   );

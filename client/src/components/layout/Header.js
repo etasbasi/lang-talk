@@ -29,7 +29,7 @@ class Header extends Component {
           <Link to="/posts">Posts</Link>
         </li>
         <li>
-          <a href="" onClick={this.onLogoutClick.bind(this)}>
+          <a onClick={this.onLogoutClick.bind(this)}>
             Log Out
             <img
               src={user.avatar}
@@ -45,9 +45,6 @@ class Header extends Component {
       <div>
         <li>
           <Link to="/profiles">Users</Link>
-        </li>
-        <li>
-          <Link to="/feed">Feed</Link>
         </li>
         <li>
           <Link to="/login">Login</Link>

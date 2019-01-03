@@ -6,6 +6,7 @@
 
 body {
   font: 1.2em/1.5 "KoHo", sans-serif;
+  overflow-x: hidden;
 }
 
 :root {
@@ -163,20 +164,20 @@ nav .nav-wrapper {
 
 /* FEED */
 
-div.card.horizontal div.card-image {
-  margin: 0 20px;
-  display: block;
-  text-align: center;
+div.horizontal-card div.card-image {
+  margin: 0 20px !important;
+  display: block !important;
+  text-align: center !important;
 }
 
-div.card.horizontal div.card-image img {
-  width: 80px;
-  margin: 4px;
-  border-radius: 50%;
-  border: 1px solid black;
+div.horizontal-card div.card-image img {
+  width: 80px !important;
+  margin: 4px !important;
+  border-radius: 50% !important;
+  border: 1px solid black !important;
 }
 
-div.card.horizontal div.card-image .date {
+div.horizontal-card div.card-image .date {
   font-size: 0.8em;
   line-height: 0.8;
 }
@@ -260,6 +261,7 @@ div.dashboard .btn-floating {
 
 div.dashboard .delete-button {
   background-color: red;
+  margin-top: 15px;
 }
 
 /* LOGIN */
@@ -273,6 +275,11 @@ div.dashboard .delete-button {
 .input .helper-text {
   font-size: 75% !important;
   color: red !important;
+}
+
+.textarea.helper-text {
+  position: relative;
+  top: -12px;
 }
 
 /* REGISTER */
@@ -291,15 +298,22 @@ div.dashboard .delete-button {
   margin: 40px auto;
 }
 
-div.create-profile form i {
-  /* margin-top: 40px; */
-}
-
 /* Profiles page */
 
-div.card.horizontal {
+div.horizontal-card.card {
   display: grid;
   grid-template-columns: 140px auto;
+  padding: 3px;
+}
+
+div.horizontal-card.card a {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+div.horizontal-card.card div.card-content {
+  padding: 15px 15px 15px 5px;
 }
 
 .card-image {
@@ -309,9 +323,10 @@ div.card.horizontal {
 }
 
 .card-image img {
+  width: 100px !important;
   max-width: 100% !important;
   margin: auto !important;
-  height: auto;
+  height: auto !important;
 }
 
 .card-image span {
@@ -319,7 +334,7 @@ div.card.horizontal {
   padding: 3px;
 }
 
-.profiles .card-content {
+.profiles .horizontal-card .card-content {
   display: grid;
   grid-template-columns: 60% auto;
   grid-gap: 15px;
@@ -336,10 +351,42 @@ div.card.horizontal {
   margin: 5px;
 }
 
+/* For the post items */
+
+.card-content .post-actions {
+  cursor: default;
+  margin: 16px 0 0 0;
+}
+
+.card-content .post-actions i {
+  cursor: pointer;
+  padding: 4px;
+  margin: 2px;
+}
+
+.card-content .post-actions i.active {
+  color: var(--main-color);
+}
+
+.card-content .post-actions i.delete-post-button {
+  color: rgba(230, 0, 0, 0.8);
+  font-size: 1.4em;
+}
+
+.card-content .post-actions span span {
+  margin-right: 4px;
+}
+
 @media only screen and (max-width: 995px) {
   nav .nav-wrapper {
     margin: 0 0;
   }
+}
+
+/* Post */
+
+.post {
+  margin: 50px auto;
 }
 
 @media only screen and (max-width: 600px) {

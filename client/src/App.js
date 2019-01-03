@@ -14,7 +14,6 @@ import Header from "./components/layout/Header";
 import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Feed from "./components/Feed";
 import Question from "./components/Question";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/dashboard/CreateProfile";
@@ -24,6 +23,7 @@ import PrivateRoute from "./components/common/PrivateRoute";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 import Posts from "./components/posts/Posts";
+import Post from "./components/post/Post";
 
 // Check if the user is logged in
 if (localStorage.jwtToken) {
@@ -54,7 +54,6 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/feed" component={Feed} />
             <Route exact path="/question" component={Question} />
             <Route exact path="/profiles" component={Profiles} />
             <Route exact path="/profile/:id" component={Profile} />
@@ -63,6 +62,9 @@ class App extends Component {
             </Switch>
             <Switch>
               <PrivateRoute exact path="/posts" component={Posts} />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/post/:id" component={Post} />
             </Switch>
             <Switch>
               <PrivateRoute

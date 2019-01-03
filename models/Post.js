@@ -31,6 +31,12 @@ const PostSchema = new Schema({
       text: {
         required: true,
         type: String
+      },
+      avatar: {
+        type: String
+      },
+      name: {
+        type: String
       }
     }
   ],

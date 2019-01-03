@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Spinner from "../common/Spinner";
 import { getPosts } from "../../actions/postActions";
 import PostFeed from "./PostFeed";
+import PostForm from "./PostForm";
 
 class Posts extends Component {
   componentDidMount() {
@@ -25,6 +26,7 @@ class Posts extends Component {
     return (
       <div className="container feed">
         <h4>Feed</h4>
+        <PostForm />
         {postContent}
       </div>
     );

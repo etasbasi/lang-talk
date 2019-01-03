@@ -6,7 +6,8 @@ export default function HorizontalCard({
   name,
   text,
   link,
-  listItems
+  listItems,
+  RenderActions
 }) {
   let list;
   if (listItems) {
@@ -26,16 +27,25 @@ export default function HorizontalCard({
 
   return (
     <div>
-      <div className="card horizontal">
-        <Link to={link}>
+      <div className="horizontal-card card horizontal">
+        {link ? (
+          <Link to={link}>
+            <div className="card-image">
+              <img src={avatar} alt="avatar of the user" />
+              <span>{name}</span>
+            </div>
+          </Link>
+        ) : (
           <div className="card-image">
-            <img src={avatar} />
+            <img src={avatar} alt="avatar of the user" />
             <span>{name}</span>
           </div>
-        </Link>
+        )}
+
         <div className="card-stacked">
           <div className="card-content">
             <p>{text}</p>
+            {RenderActions ? <RenderActions /> : null}
             {list}
           </div>
         </div>

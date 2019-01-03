@@ -28,7 +28,7 @@ function ProfileContent({ profile }) {
           alt="profile avatar"
           className="profile-img"
         />
-        <h6>{profile.bio}</h6>
+        <h5>{profile.bio !== "" ? profile.bio : "This person has no bio"}</h5>
         {profile.location !== "" ? (
           <div className="dashboard-location">
             <i className="small material-icons">location_on</i>

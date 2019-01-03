@@ -36,6 +36,15 @@ router.get("/", (req, res) => {
     });
 });
 
+// @route   GET api/posts/:id
+// @desc    Get post by id
+// @access  Public
+router.get("/:id", (req, res) => {
+  Post.findById(req.params.id)
+    .then(post => res.json(post))
+    .catch(err => res.status(404).json(err));
+});
+
 // @route   POST api/posts
 // @desc    Post a post
 // @access  Private
@@ -159,7 +168,9 @@ router.post(
       .then(post => {
         const comment = {
           text: req.body.text,
-          user: req.user.id
+          user: req.user.id,
+          avatar: req.user.avatar,
+          name: req.user.name
         };
 
         post.comments.unshift(comment);

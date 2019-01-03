@@ -17,7 +17,6 @@ class Dashboard extends Component {
 
   render() {
     const { profile, loading } = this.props.profile;
-    const { user } = this.props.auth;
 
     let dashboardContent;
 

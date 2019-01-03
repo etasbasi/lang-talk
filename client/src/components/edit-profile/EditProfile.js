@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { createProfile, getCurrentProfile } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
+import GoBack from "../common/GoBack";
 
 import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
@@ -103,10 +104,7 @@ class EditProfile extends Component {
 
     return (
       <div className="container create-profile">
-        <Link className="btn waves-effect waves-light" to="/dashboard">
-          Go Back
-          <i className="material-icons left">keyboard_arrow_left</i>
-        </Link>
+        <GoBack to="/dashboard" />
         <h3>Edit your profile</h3>
         <form onSubmit={this.onSubmit} noValidate>
           <TextAreaFieldGroup
