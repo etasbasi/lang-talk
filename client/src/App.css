@@ -26,6 +26,10 @@ a {
   cursor: pointer;
 }
 
+.back-button {
+  margin-bottom: 5px;
+}
+
 /* Notvalid class for input fields */
 
 textarea.notvalid,

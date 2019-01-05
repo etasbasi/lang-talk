@@ -29,7 +29,7 @@ class PostItem extends Component {
   }
 
   render() {
-    const { post, auth, showActions } = this.props;
+    const { post, auth, showActions, link } = this.props;
     let actions = () => (
       <div className="post-actions">
         <span>
@@ -59,7 +59,8 @@ class PostItem extends Component {
     );
     return (
       <HorizontalCard
-        link={`/post/${post._id}`}
+        // If a link prop is passed down on this component use it else use the default post link
+        link={link ? link : `/post/${post._id}`}
         avatar={post.avatar}
         name={post.name}
         text={post.text}

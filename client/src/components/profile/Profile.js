@@ -23,7 +23,7 @@ class Profile extends Component {
     } else {
       profileContent = (
         <div>
-          <ProfileContent profile={profile} />
+          <ProfileContent link="/profiles" profile={profile} />
         </div>
       );
     }

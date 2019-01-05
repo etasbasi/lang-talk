@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "materialize-css";
 
 import {
   GET_POSTS,
@@ -22,7 +23,10 @@ export const addPost = postData => dispatch => {
   dispatch(clearErrors());
   axios
     .post("/api/posts", postData)
-    .then(res => dispatch({ type: ADD_POST, payload: res.data }))
+    .then(res => {
+      dispatch({ type: ADD_POST, payload: res.data });
+      toast({ html: "Post Created" });
+    })
     .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }));
 };
 
@@ -66,7 +70,9 @@ export const addComment = (postId, commentData) => dispatch => {
 export const deleteComment = (postId, commentId) => dispatch => {
   axios
     .delete(`/api/posts/comment/${postId}/${commentId}`)
-    .then(res => dispatch({ type: GET_POST, payload: res.data }))
+    .then(res => {
+      dispatch({ type: GET_POST, payload: res.data });
+    })
     .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }));
 };
 

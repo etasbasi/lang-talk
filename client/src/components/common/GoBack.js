@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function GoBack({ to, text }) {
   return (
-    <Link className="btn waves-effect waves-light" to={to}>
+    <Link className="back-button btn waves-effect waves-light" to={to}>
       {text}
       <i className="material-icons left">keyboard_arrow_left</i>
     </Link>

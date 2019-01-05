@@ -5,6 +5,7 @@ import {
   DELETE_POST,
   GET_POST
 } from "../actions/types";
+import { toast } from "materialize-css";
 
 const initialState = {
   posts: [],
@@ -21,6 +22,8 @@ export default function(state = initialState, action) {
     case ADD_POST:
       return { ...state, posts: [action.payload, ...state.posts] };
     case DELETE_POST:
+      toast({ html: "Post Deleted" });
+
       return {
         ...state,
         posts: state.posts.filter(post => post._id !== action.payload)

@@ -2,6 +2,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../utils/setAuthToken";
 import { GET_ERRORS, SET_CURRENT_USER } from "./types";
+import { toast } from "materialize-css";
 
 // Register user
 export const registerUser = (userData, history) => dispatch => {
@@ -31,6 +32,8 @@ export const loginUser = userData => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
+
+      toast({ html: "Logged In" });
     })
     .catch(err =>
       dispatch({
@@ -56,4 +59,5 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   // Set current user to {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
+  toast({ html: "Logged Out" });
 };

@@ -3,7 +3,6 @@ import M from "materialize-css";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import LangImg from "../imgs/lang.webp";
-import MultiCultImg from "../imgs/multi-cultural.jpg";
 import { Link } from "react-router-dom";
 
 class Landing extends Component {
@@ -14,9 +13,6 @@ class Landing extends Component {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
-
-    console.log(MultiCultImg);
-    console.log(LangImg);
   }
 
   render() {

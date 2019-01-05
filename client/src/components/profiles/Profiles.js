@@ -23,7 +23,7 @@ class Profiles extends Component {
           <ProfileItem key={profile._id} profile={profile} />
         ));
       } else {
-        profileItems = <h4>No Profiles Found</h4>;
+        profileItems = <h5>No Profiles Found</h5>;
       }
     }
     return (

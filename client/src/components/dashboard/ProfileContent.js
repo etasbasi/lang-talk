@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import ListCard from "../common/ListCard";
+import GoBack from "../common/GoBack";
 
-function ProfileContent({ profile }) {
+function ProfileContent({ profile, link }) {
   let socialLinks;
 
   if (profile.social && Object.keys(profile.social).length > 0) {
@@ -21,6 +22,7 @@ function ProfileContent({ profile }) {
   }
   return (
     <div className="profile">
+      {link ? <GoBack to={link} /> : null}
       <div className="profile-header z-depth-2">
         <h4>{profile.user.name}'s profile</h4>
         <img

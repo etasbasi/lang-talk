@@ -22,7 +22,11 @@ class Post extends Component {
     } else {
       postContent = (
         <div>
-          <PostItem post={post} showActions={false} />
+          <PostItem
+            post={post}
+            link={`/profile/${post.user}`}
+            showActions={false}
+          />
         </div>
       );
     }
