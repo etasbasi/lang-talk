@@ -96,6 +96,7 @@ class EditProfile extends Component {
   }
 
   componentDidMount() {
+    document.title = "Edit Your Profile - LangTalk";
     this.props.getCurrentProfile();
   }
 

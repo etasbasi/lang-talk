@@ -9,6 +9,7 @@ import PostForm from "./PostForm";
 
 class Posts extends Component {
   componentDidMount() {
+    document.title = "Posts - LangTalk";
     this.props.getPosts();
   }
 

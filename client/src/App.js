@@ -14,7 +14,6 @@ import Header from "./components/layout/Header";
 import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Question from "./components/Question";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/dashboard/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
@@ -24,6 +23,7 @@ import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
+import PageNotFound from "./components/common/PageNotFound";
 
 // Check if the user is logged in
 if (localStorage.jwtToken) {
@@ -51,34 +51,36 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/question" component={Question} />
-            <Route exact path="/profiles" component={Profiles} />
-            <Route exact path="/profile/:id" component={Profile} />
             <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            </Switch>
-            <Switch>
-              <PrivateRoute exact path="/posts" component={Posts} />
-            </Switch>
-            <Switch>
-              <PrivateRoute exact path="/post/:id" component={Post} />
-            </Switch>
-            <Switch>
-              <PrivateRoute
-                exact
-                path="/create-profile"
-                component={CreateProfile}
-              />
-            </Switch>
-            <Switch>
-              <PrivateRoute
-                exact
-                path="/edit-profile"
-                component={EditProfile}
-              />
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/profiles" component={Profiles} />
+              <Route exact path="/profile/:id" component={Profile} />
+              <Switch>
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/posts" component={Posts} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/post/:id" component={Post} />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/create-profile"
+                  component={CreateProfile}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/edit-profile"
+                  component={EditProfile}
+                />
+              </Switch>
+              <Route path="*" component={PageNotFound} />
             </Switch>
             <Footer />
           </div>

@@ -21,6 +21,7 @@ class Profile extends Component {
     if (profile == null || loading) {
       profileContent = <Spinner />;
     } else {
+      document.title = `${profile.user.name}'s Profile - LangTalk`;
       profileContent = (
         <div>
           <ProfileContent link="/profiles" profile={profile} />

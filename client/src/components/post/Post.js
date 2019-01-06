@@ -20,6 +20,8 @@ class Post extends Component {
     if (post === null || loading || Object.keys(post).length === 0) {
       postContent = <Spinner />;
     } else {
+      document.title = `${this.props.post.post.text.slice(0, 30)} - LangTalk`;
+
       postContent = (
         <div>
           <PostItem

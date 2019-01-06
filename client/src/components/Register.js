@@ -22,6 +22,7 @@ class Register extends Component {
   }
 
   componentDidMount() {
+    document.title = "Register to LangTalk";
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }

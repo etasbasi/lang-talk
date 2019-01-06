@@ -19,7 +19,7 @@ a.btn,
 input.btn,
 input.btn-large {
   background-color: var(--main-color) !important;
-  color: white;
+  color: white !important;
 }
 
 a {

@@ -12,6 +12,7 @@ import ProfileContent from "./ProfileContent";
 
 class Dashboard extends Component {
   componentDidMount() {
+    document.title = "Your Dashboard - LangTalk";
     this.props.getCurrentProfile();
   }
 

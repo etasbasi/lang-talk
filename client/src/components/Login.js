@@ -19,6 +19,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
+    document.title = "Login to LangTalk";
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }

@@ -8,6 +8,7 @@ import { getProfiles } from "../../actions/profileActions";
 
 class Profiles extends Component {
   componentDidMount() {
+    document.title = "Profiles - LangTalk";
     this.props.getProfiles();
   }
 
