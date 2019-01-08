@@ -50,37 +50,27 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Header />
+          <Header />
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:id" component={Profile} />
-              <Switch>
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Switch>
-              <Switch>
-                <PrivateRoute exact path="/posts" component={Posts} />
-              </Switch>
-              <Switch>
-                <PrivateRoute exact path="/post/:id" component={Post} />
-              </Switch>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/create-profile"
-                  component={CreateProfile}
-                />
-              </Switch>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/edit-profile"
-                  component={EditProfile}
-                />
-              </Switch>
-              <Route path="*" component={PageNotFound} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/posts" component={Posts} />
+              <PrivateRoute exact path="/post/:id" component={Post} />
+              <PrivateRoute
+                exact
+                path="/create-profile"
+                component={CreateProfile}
+              />
+              <PrivateRoute
+                exact
+                path="/edit-profile"
+                component={EditProfile}
+              />
+              <Route component={PageNotFound} />
             </Switch>
             <Footer />
           </div>

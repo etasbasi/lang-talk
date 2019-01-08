@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 class Landing extends Component {
   componentDidMount() {
+    document.title = "Lang-Talk";
     M.Parallax.init(this.refs.parallax1);
     M.Parallax.init(this.refs.parallax2);
 
