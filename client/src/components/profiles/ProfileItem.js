@@ -10,7 +10,7 @@ class ProfileItem extends Component {
       <div className="profile-item">
         <HorizontalCard
           link={`/profile/${profile.user._id}`}
-          avatar={profile.user.avatar}
+          avatar={`/api/profile/avatar/${profile.user._id}`}
           name={profile.user.name}
           text={profile.bio}
           listItems={

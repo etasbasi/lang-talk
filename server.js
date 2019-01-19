@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require("path");
+const busboy = require("connect-busboy");
+const fileUpload = require("express-fileupload");
 
 const users = require("./routes/api/users");
 const profiles = require("./routes/api/profiles");
@@ -13,6 +15,8 @@ const app = express();
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(busboy());
+app.use(fileUpload({ safeFileNames: true, preserveExtension: true }));
 
 // DB Config
 const db = require("./config/keys").mongoURI;

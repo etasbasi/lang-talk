@@ -1,9 +1,7 @@
-const mongoose = require("mongoose");
 const express = require("express");
-const gravatar = require("gravatar");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const passport = require("passport");
+const fs = require("fs");
+const path = require("path");
 
 const router = express.Router();
 
@@ -12,6 +10,7 @@ const keys = require("../../config/keys");
 
 // User model
 const Profile = require("./../../models/Profile");
+const User = require("./../../models/User");
 
 // Validation
 const validateProfileInput = require("../../validation/profile");
@@ -36,9 +35,26 @@ router.post(
     // Get fields
     const profileFields = {};
 
+    const imgPath = path.join(
+      __dirname,
+      "/../../client",
+      "src",
+      "imgs",
+      "default_image.png"
+    );
+
+    let avatar;
+
+    avatar = fs.readFileSync(imgPath);
+    profileFields.avatar = {
+      data: avatar,
+      type: "image/PNG",
+      name: "default_image.png"
+    };
     profileFields.user = req.user.id;
     profileFields.location = req.body.location;
     profileFields.bio = req.body.bio;
+
     // if (req.body.bio) profileFields.bio = req.body.bio;
     // if (req.body.location) profileFields.location = req.body.location;
 
@@ -70,7 +86,11 @@ router.post(
             { user: req.user.id },
             { $set: profileFields },
             { new: true }
-          ).then(profile => res.json(profile));
+          ).then(profile => {
+            let { data, ...rest } = profile.avatar;
+            profile.avatar = rest;
+            res.json(profile);
+          });
         } else {
           // Create a new profile
           new Profile(profileFields).save().then(profile => {
@@ -90,6 +110,7 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Profile.findOne({ user: req.user.id })
+
       .populate("user", ["name", "avatar"])
       .then(profile => {
         const errors = {};
@@ -97,6 +118,8 @@ router.get(
           errors.noprofile = "There is no profile for this user";
           return res.status(404).json(errors);
         }
+        let { data, ...rest } = profile.avatar;
+        profile.avatar = rest;
         res.json(profile);
       })
       .catch(err => {
@@ -135,6 +158,8 @@ router.get("/user/:user_id", (req, res) => {
         return res.status(404).json(errors);
       }
 
+      let { data, ...rest } = profile.avatar;
+      profile.avatar = rest;
       res.json(profile);
     })
     .catch(err => {
@@ -154,6 +179,48 @@ router.delete(
         res.json({ success: true });
       });
     });
+  }
+);
+
+// @route   GET api/profile/avatar/:id
+// @desc    Get profile image
+// @access  Public
+router.get("/avatar/:id", (req, res) => {
+  Profile.findOne({ user: req.params.id })
+    .then(profile => {
+      res.type(profile.avatar.type);
+      res.send(profile.avatar.data);
+    })
+    .catch(err => res.json({ noavatarfound: "avatar not found" }));
+});
+
+// @route   POST api/profile/image
+// @desc    Edit profiel image
+// @access  Private
+router.post(
+  "/avatar",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    if (!req.files) {
+      return res.status(404).json({ fileerror: "The file wasn't found" });
+    }
+
+    const avatar = {
+      data: req.files.avatar.data,
+      type: req.files.avatar.mimetype,
+      name: req.files.avatar.name
+    };
+
+    Profile.findOneAndUpdate({ user: req.user.id }, { avatar }, { new: true })
+      .populate("user", ["name", "avatar", "id"])
+      .then(profile => {
+        let { data, ...rest } = profile.avatar;
+        profile.avatar = rest;
+        res.json(profile);
+      })
+      .catch(err => {
+        res.json({ fileerror: "We couldn't update your avatar" });
+      });
   }
 );
 

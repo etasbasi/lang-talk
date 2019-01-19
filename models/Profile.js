@@ -12,6 +12,7 @@ const ProfileSchema = new Schema({
   //     required: true,
   //     max: 40
   //   },
+
   location: {
     type: String
   },
@@ -31,6 +32,11 @@ const ProfileSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  avatar: {
+    data: { type: Buffer, required: true },
+    type: { type: String },
+    name: { type: String }
   }
 });
 

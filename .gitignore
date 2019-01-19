@@ -25,3 +25,5 @@ yarn-error.log*
 
 # ignore the passport secret for security
 /config/secret.json
+
+playground.js

@@ -61,7 +61,7 @@ class PostItem extends Component {
       <HorizontalCard
         // If a link prop is passed down on this component use it else use the default post link
         link={link ? link : `/post/${post._id}`}
-        avatar={post.avatar}
+        avatar={`/api/profile/avatar/${post.user}`}
         name={post.name}
         text={post.text}
         RenderActions={showActions ? actions : null}

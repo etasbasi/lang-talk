@@ -26,8 +26,8 @@ class CommentItem extends Component {
     );
     return (
       <HorizontalCard
-      link={`/profile/comment._id`}
-        avatar={comment.avatar}
+        link={`/profile/comment._id`}
+        avatar={`/api/profile/avatar/${comment.user}`}
         name={comment.name}
         text={comment.text}
         RenderActions={actions}

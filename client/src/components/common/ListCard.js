@@ -14,7 +14,7 @@ function ListCard({ title, list }) {
       </div>
     );
   } else {
-    return <script />;
+    return null;
   }
 }
 

@@ -6,7 +6,9 @@ import {
   GET_ERRORS,
   CLEAR_CURRENT_PROFILE,
   SET_CURRENT_USER,
-  GET_PROFILES
+  GET_PROFILES,
+  CHANGE_AVATAR,
+  CLEAR_ERRORS
 } from "./types";
 import { toast } from "materialize-css";
 
@@ -64,6 +66,22 @@ export const getProfileById = id => dispatch => {
     .get(`/api/profile/user/${id}`)
     .then(res => dispatch({ type: GET_PROFILE, payload: res.data }))
     .catch(err => dispatch({ type: GET_PROFILE, payload: null }));
+};
+
+export const changeAvatar = avatar => dispatch => {
+  // dispatch(setProfileLoading());
+  let formData = new FormData();
+  formData.append("avatar", avatar[0]);
+  axios
+    .post("/api/profile/avatar", formData, {
+      headers: { "Content-Type": "multipart/form-data" }
+    })
+    .then(res => {
+      dispatch({ type: CLEAR_ERRORS });
+      dispatch(setProfileLoading());
+      dispatch({ type: CHANGE_AVATAR, payload: res.data });
+    })
+    .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }));
 };
 
 // Clear profile

@@ -29,14 +29,7 @@ class Header extends Component {
           <Link to="/posts">Posts</Link>
         </li>
         <li>
-          <a onClick={this.onLogoutClick.bind(this)}>
-            Log Out
-            <img
-              src={user.avatar}
-              alt={user.name}
-              title="You must have a Gravatar connected to your email to display and image"
-            />
-          </a>
+          <a onClick={this.onLogoutClick.bind(this)}>Log Out</a>
         </li>
       </div>
     );

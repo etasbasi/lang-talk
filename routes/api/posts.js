@@ -214,4 +214,16 @@ router.delete(
   }
 );
 
+// @route   POST api/posts/avatar/:id
+// @desc    Get profile image
+// @access  public
+router.get("/avatar/:id", (req, res) => {
+  Profile.findById(req.params.id)
+    .then(profile => {
+      res.type(profile.avatar.type);
+      res.send(profile.avatar.data);
+    })
+    .catch(err => res.json({ err: "avatar not found" }));
+});
+
 module.exports = router;

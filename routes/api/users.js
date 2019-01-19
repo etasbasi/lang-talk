@@ -46,7 +46,8 @@ router.post("/register", (req, res) => {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        avatar: avatar,
+        avatar:
+          "//www.gravatar.com/avatar/357a20e8c56e69d6f9734d23ef9517e8?s=200&amp;r=pg&amp;d=mm",
         password: req.body.password
       });
 
