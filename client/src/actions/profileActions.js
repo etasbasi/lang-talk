@@ -77,6 +77,7 @@ export const changeAvatar = avatar => dispatch => {
       headers: { "Content-Type": "multipart/form-data" }
     })
     .then(res => {
+      toast({ html: "Avatar updated" });
       dispatch({ type: CLEAR_ERRORS });
       dispatch(setProfileLoading());
       dispatch({ type: CHANGE_AVATAR, payload: res.data });

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import M from "materialize-css";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
-import LangImg from "../imgs/lang.webp";
+import LangImg from "../imgs/lang.jpg";
 import { Link } from "react-router-dom";
 
 class Landing extends Component {
