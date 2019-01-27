@@ -10,3 +10,7 @@
 .dropzone.drag-active {
   border-color: #0f0;
 }
+
+.dropzone p {
+  line-height: 1em;
+}

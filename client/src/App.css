@@ -16,6 +16,7 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
@@ -420,16 +421,16 @@ div.horizontal-card.card div.card-content {
   margin-right: 4px;
 }
 
-@media only screen and (max-width: 995px) {
-  nav .nav-wrapper {
-    margin: 0 0;
-  }
-}
-
 /* Post */
 
 .post {
   margin: 50px auto;
+}
+
+@media only screen and (max-width: 995px) {
+  nav .nav-wrapper {
+    margin: 0 0;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -451,5 +452,11 @@ div.horizontal-card.card div.card-content {
 
   .profiles .card-content .lang-list {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .parallax-container {
+    height: 500px;
   }
 }
