@@ -457,6 +457,12 @@ div.horizontal-card.card div.card-content {
 
 @media only screen and (min-width: 1450px) {
   .parallax-container {
-    height: 500px;
+    height: 800px;
+  }
+}
+
+@media only screen and (min-width: 2100px) {
+  .parallax-container {
+    height: 1100px;
   }
 }

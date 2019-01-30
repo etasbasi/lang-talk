@@ -26,7 +26,9 @@ class ProfileContent extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.errors.fileerror) {
-      this.onCloseModal();
+      // this.onCloseModal();
+      // use location.reload() because onCloseModal() makes the site unscrollable after avatar change
+      window.location.reload();
     }
   }
 
