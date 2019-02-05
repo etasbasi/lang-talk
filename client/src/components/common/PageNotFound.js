@@ -17,7 +17,12 @@ export default class PageNotFound extends Component {
         >
           Go Back
         </button>
-        <button class="waves-effect waves-light btn">Home Page</button>
+        <button
+          onClick={() => (window.location = "/")}
+          class="waves-effect waves-light btn"
+        >
+          Home Page
+        </button>
       </div>
     );
   }
