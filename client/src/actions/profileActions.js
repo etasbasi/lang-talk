@@ -71,7 +71,7 @@ export const getProfileById = id => dispatch => {
 export const changeAvatar = avatar => dispatch => {
   // dispatch(setProfileLoading());
   let formData = new FormData();
-  formData.append("avatar", avatar[0]);
+  formData.append("avatar", avatar);
   axios
     .post("/api/profile/avatar", formData, {
       headers: { "Content-Type": "multipart/form-data" }

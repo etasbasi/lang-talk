@@ -14,8 +14,8 @@
       "type": "chrome",
       "request": "attach",
       "name": "Attach to Chrome",
-      "port": 5000,
-      "webRoot": "${workspaceFolder}"
+      "port": 3000,
+      "webRoot": "${workspaceFolder}/client/src/"
     },
     {
       "name": "Chrome",
