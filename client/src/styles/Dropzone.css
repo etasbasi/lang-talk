@@ -14,3 +14,13 @@
 .dropzone p {
   line-height: 1em;
 }
+
+/* .image-cropper .cropper-container {
+  width: 500px;
+}
+
+@media screen and (max-width: 500px) {
+  .image-cropper .cropper-container {
+    width: 85vw;
+  }
+} */

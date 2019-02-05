@@ -7,6 +7,8 @@ import ListCard from "../common/ListCard";
 import GoBack from "../common/GoBack";
 import ImageDropZone from "../utils/ImageDropZone";
 
+import "../../styles/ProfileModal.css";
+
 class ProfileContent extends Component {
   // use imageHash to force the profile image to re render
   state = { modalIsOpen: false, imageHash: Date.now() };
@@ -52,7 +54,13 @@ class ProfileContent extends Component {
     }
 
     const modal = (
-      <Modal open={this.state.modalIsOpen} onClose={this.onCloseModal} center>
+      <Modal
+        // className="profile-modal"
+        className={{ modal: ".profile-modal" }}
+        open={this.state.modalIsOpen}
+        onClose={this.onCloseModal}
+        center
+      >
         {this.props.errors && (
           <span
             className="helper-text"

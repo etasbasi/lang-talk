@@ -43,6 +43,18 @@ class ImageDropZone extends Component {
   render() {
     let { imageDropped, imageToBeCropped } = this.state;
 
+    // Can't style the cropper from the stylesheet so manually have to check the innerWidth and innerHeight to
+    // assign the cropper its width and height
+    let cropperWidth = "100%";
+    let cropperHeight = 500;
+    if (window.innerWidth < 500) {
+      cropperHeight = 250;
+      cropperWidth = window.innerWidth - 80;
+    } else if (window.innerWidth < 900) {
+      cropperHeight = 350;
+      cropperWidth = window.innerWidth - 100;
+    }
+
     return (
       <div>
         {!imageDropped ? (
@@ -70,6 +82,11 @@ class ImageDropZone extends Component {
               <div>
                 <h4>Crop Your Image</h4>
                 <Cropper
+                  style={{
+                    height: cropperHeight,
+                    width: cropperWidth
+                  }}
+                  className="image-cropper"
                   ref="cropper"
                   src={imageToBeCropped}
                   aspectRatio={10 / 10}
@@ -84,7 +101,7 @@ class ImageDropZone extends Component {
                 </button>
               </div>
             ) : (
-              <div style={{ width: 400, height: 200 }}>
+              <div style={{ width: 250, height: 200 }}>
                 <Spinner />
               </div>
             )}

@@ -219,6 +219,10 @@ div.dashboard {
   padding: 10px;
 }
 
+.profile-modal {
+  background-color: black;
+}
+
 div.card.social-links div.card-content {
   font-size: 1.1em;
   padding: 10px;
