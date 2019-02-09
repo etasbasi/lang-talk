@@ -46,7 +46,7 @@ class ImageDropZone extends Component {
     // Can't style the cropper from the stylesheet so manually have to check the innerWidth and innerHeight to
     // assign the cropper its width and height
     let cropperWidth = "100%";
-    let cropperHeight = 500;
+    let cropperHeight = '100%';
     if (window.innerWidth < 500) {
       cropperHeight = 250;
       cropperWidth = window.innerWidth - 80;
