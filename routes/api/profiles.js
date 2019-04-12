@@ -2,6 +2,9 @@ const express = require("express");
 const passport = require("passport");
 const fs = require("fs");
 const path = require("path");
+const sharp = require("sharp");
+
+const { reduceSize } = require("../../utils/ImageProcessor");
 
 const router = express.Router();
 
@@ -200,27 +203,50 @@ router.get("/avatar/:id", (req, res) => {
 router.post(
   "/avatar",
   passport.authenticate("jwt", { session: false }),
-  (req, res) => {
+  async (req, res) => {
     if (!req.files) {
       return res.status(404).json({ fileerror: "The file wasn't found" });
     }
 
-    const avatar = {
-      data: req.files.avatar.data,
-      type: req.files.avatar.mimetype,
-      name: req.files.avatar.name
-    };
+    let processedAvatar;
 
-    Profile.findOneAndUpdate({ user: req.user.id }, { avatar }, { new: true })
-      .populate("user", ["name", "avatar", "id"])
-      .then(profile => {
-        let { data, ...rest } = profile.avatar;
-        profile.avatar = rest;
-        res.json(profile);
+    // const avatarBuffer = req.files.avatar.data;
+    // sharp(avatarBuffer)
+    //   .resize(200, 300)
+    //   .toBuffer()
+    //   .then(data => {
+    // processedAvatar = data;
+
+    reduceSize(req.files.avatar.data)
+      .then(data => {
+        let avatar = {
+          data: data,
+          type: req.files.avatar.mimetype,
+          name: req.files.avatar.name
+        };
+
+        Profile.findOneAndUpdate(
+          { user: req.user.id },
+          { avatar },
+          { new: true }
+        )
+          .populate("user", ["name", "avatar", "id"])
+          .then(profile => {
+            let { data, ...rest } = profile.avatar;
+            profile.avatar = rest;
+            res.json(profile);
+          })
+          .catch(err => {
+            res.json({ fileerror: "We couldn't update your avatar" });
+          });
       })
-      .catch(err => {
-        res.json({ fileerror: "We couldn't update your avatar" });
-      });
+      .catch(err => console.log(err));
+
+    // })
+
+    // .catch(err => console.log(err));
+
+    // TODO: use the jimp library to reduce the img quality
   }
 );
 

@@ -32,12 +32,16 @@ class ImageDropZone extends Component {
 
   crop = () => {
     // after the user crops the image convert the canvas to blob and add some properties to make it a proper file
-    this.refs.cropper.getCroppedCanvas().toBlob(blob => {
-      let tempBlob = blob;
-      tempBlob.lastModifiedDate = new Date().now;
-      tempBlob.fileName = this.state.acceptedFiles.name;
-      this.props.onImageDrop(tempBlob);
-    });
+    this.refs.cropper.getCroppedCanvas().toBlob(
+      blob => {
+        let tempBlob = blob;
+        tempBlob.lastModifiedDate = new Date().now;
+        tempBlob.fileName = this.state.acceptedFiles.name;
+        this.props.onImageDrop(tempBlob);
+      },
+      "image/png",
+      0.1
+    );
   };
 
   render() {
@@ -46,7 +50,7 @@ class ImageDropZone extends Component {
     // Can't style the cropper from the stylesheet so manually have to check the innerWidth and innerHeight to
     // assign the cropper its width and height
     let cropperWidth = "100%";
-    let cropperHeight = '100%';
+    let cropperHeight = "100%";
     if (window.innerWidth < 500) {
       cropperHeight = 250;
       cropperWidth = window.innerWidth - 80;
