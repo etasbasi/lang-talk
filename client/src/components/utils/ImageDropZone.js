@@ -12,7 +12,8 @@ class ImageDropZone extends Component {
     acceptedFiles: {},
     // if imageDropped is true and imageToBoCropped is null the modal will show the spinner
     imageDropped: false,
-    imageToBeCropped: null
+    imageToBeCropped: null,
+    onCropPressed: false
   };
 
   onDrop = acceptedFiles => {
@@ -31,21 +32,18 @@ class ImageDropZone extends Component {
   };
 
   crop = () => {
+    this.setState({ onCropPressed: true });
     // after the user crops the image convert the canvas to blob and add some properties to make it a proper file
-    this.refs.cropper.getCroppedCanvas().toBlob(
-      blob => {
-        let tempBlob = blob;
-        tempBlob.lastModifiedDate = new Date().now;
-        tempBlob.fileName = this.state.acceptedFiles.name;
-        this.props.onImageDrop(tempBlob);
-      },
-      "image/png",
-      0.1
-    );
+    this.refs.cropper.getCroppedCanvas().toBlob(blob => {
+      let tempBlob = blob;
+      tempBlob.lastModifiedDate = new Date().now;
+      tempBlob.fileName = this.state.acceptedFiles.name;
+      this.props.onImageDrop(tempBlob);
+    });
   };
 
   render() {
-    let { imageDropped, imageToBeCropped } = this.state;
+    let { imageDropped, imageToBeCropped, onCropPressed } = this.state;
 
     // Can't style the cropper from the stylesheet so manually have to check the innerWidth and innerHeight to
     // assign the cropper its width and height
@@ -82,7 +80,7 @@ class ImageDropZone extends Component {
           </ReactDropzone>
         ) : (
           <div>
-            {imageToBeCropped ? (
+            {imageToBeCropped && !onCropPressed ? (
               <div>
                 <h4>Crop Your Image</h4>
                 <Cropper
